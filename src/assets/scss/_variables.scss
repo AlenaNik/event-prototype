@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+// Palette
+$base-white: #FFF;
+$bg-color: #FAFBFD;
+$text-light: #8f9cb2;
+$text-base: #465877;
+$text-dark: #303446;
+
+$text-accent: #258aff;
+$text-accent-background: rgba(37, 138, 255, 0.1);
+
+$text-error-accent: rgb(233, 91, 91);
+$text-error-background: rgba(233, 91, 91, 0.1);
+
+$text-accent-disabled: rgb(126, 139, 162);
+$text-accent-disabled-background: rgba(126, 139, 162, 0.1);
+
+$border: 1px solid transparent;
+$box-shadow: rgba(199,205,216,.4) 0 4px 12px 0;
+$border-radius: 8px;
+$cursor: pointer;
+$padding-xs: 5px;
+$padding-m: 10px;
+
+$margin-xs: 5px;
+$margin-m: 10px;
+
+// font related
+
+$base-font: 16px;
+$base-font-color: $text-base;
+
+$ratio: 1.618;
+
+$font-family: 'Inter', sans-serif;
+$sub-heading-font: $base-font / $ratio;
+$heading-font: $sub-heading-font / $ratio;
+$heading-color: $text-dark;
+
+$paragraph-font: $base-font * $ratio;
+$p-color: $text-light;
+
+$small-font: $paragraph-font * $ratio;
+$xs-font: $small-font * $ratio;
+
+$normal: 500;
+$light: 400;
+
+// wide-screen mixin
+$wide: 1024px;
+@mixin desktop {
+  @media (min-width: #{$wide}) {
+    @content;
+  }
+}
+
+// desktop mixin
+$desktop: 840px;
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
