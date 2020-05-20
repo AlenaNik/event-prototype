@@ -6,7 +6,7 @@
                 <p>{{ order }}</p>
             </section>
             <section class="section-one" v-scroll-reveal v-else>
-                <h1>Order: </h1>
+                <h1>Order: {{ num }}</h1>
                 <p>Thank you for choosing us. Here is you order details:</p>
                 <div class="container">
                     <div v-for="(item, idx) in selected" :key="idx"> Room: {{ item.name }} </div>
@@ -22,12 +22,14 @@
         props: ['selected', 'total'],
         data() {
             return {
-                order: 'Nothing to show yet'
+                order: 'Nothing to show yet',
+                num: '675799'
             }
         },
         mounted() {
             if (this.selected) {
                 this.order = this.selected
+                localStorage.setItem("latestOrder", this.order)
             }
         }
     }
