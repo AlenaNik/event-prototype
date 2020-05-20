@@ -1,29 +1,25 @@
 <template>
-    <h1>{{ hotels }}</h1>
-<!--    <div class="card-wrapper"-->
-<!--    >-->
-<!--        <div class="hotel-section" v-for="(item, idx) in items" :key="idx">-->
-<!--            <img :src="item.images" alt="">-->
-<!--            <span class="category-title">{{ item.rating }}</span>-->
-<!--            <p class="sub-title"-->
-<!--            v-for="(amenitie, idx) in item.amenities" :key="idx"-->
-<!--            >{{ amenitie }}</p>-->
-<!--            <button><router-link to="/details"> Book </router-link></button>-->
-<!--        </div>-->
-<!--        <div class="detail-section">-->
-<!--            <div class="naming">-->
-<!--                <span class="name">{{ item.price_category }}</span>-->
-<!--                <span class="info"></span>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+        <div class="card-wrapper">
+            <div class="hotel-section" v-for="(hotel, idx) in hotels" :key="idx">
+                <div class="info">
+                    <star-icon size="1.5x" class="custom-class"></star-icon>
+                    <span class="category-title">{{ hotel.rating }}</span>
+                    <p class="sub-title"
+                       v-for="(amenity, idx) in hotel.amenities" :key="idx"
+                    >{{ amenity }}</p>
+                    <p class="sub-title"> Rooms available: {{ Number(hotel.rooms.length) }} </p>
+                </div>
+                <img src="../assets/img/photo-1543520345-55eb2dc9a1ba.jpeg" alt="">
+                <button class="btn-primary"><router-link to="/details"> Book </router-link></button>
+            </div>
+        </div>
 </template>
 
 <script>
     import { mapState } from 'vuex'
+    import { StarIcon } from 'vue-feather-icons'
     export default {
         name: 'card',
-        props: [ 'hotels' ],
         mounted() {
             this.$store.dispatch("getAllHotels")
         },
@@ -31,87 +27,69 @@
             ...mapState([
                 'hotels'
             ])
+        },
+        components: {
+            StarIcon
         }
-
     }
 </script>
 
 <style scoped lang="scss">
 @import "../assets/scss/variables";
-
+@import "../assets/scss/buttons";
 .card-wrapper {
-    margin: $margin-m;
-    padding: $padding-m * 2;
-    box-shadow: $box-shadow;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
+    margin: $margin-m;
+    padding: $padding-m * 2;
     border: $border;
     border-radius: $border-radius * 2;
     &:hover {
         box-shadow: $box-shadow-hover;
     }
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .hotel-section {
         display: flex;
         flex-direction: column;
-        position: relative;
         justify-content: center;
         align-items: center;
+        padding-bottom: $padding-m * 4;
         img {
-            width: 100%;
-            align-items: center;
-            overflow: hidden;
-            text-align: center;
-            border-radius: $border-radius * 2;
+            width: 400px;
+            object-fit: cover;
+            margin-bottom: $margin-m;
+            border-radius: $border-radius;
         }
         .category-title {
-            padding-top: $padding-m;
-            text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: small;
             color: $text-base;
             font-weight: lighter;
-            line-height: 1.5;
             margin: 0;
-            opacity: .6;
+            margin-right: $margin-m;
         }
         .sub-title {
             text-align: center;
-            font-size: $sub-heading-font;
-            color: $text-light;
-            font-weight: bolder;
-            letter-spacing: 1px;
+            font-size: $paragraph-font;
+            background-color: $text-accent-background;
+            margin-right: $margin-m;
+            color: $text-accent;
+            padding: $margin-m;
+            border-radius: $border-radius;
+        }
+        a {
+            color: $base-white;
         }
     }
-    .detail-section-section {
-        display: flex;
-        padding: .5rem 1rem 1rem;
-        flex-grow: 1;
+    @include desktop {
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        img {
-            border-radius: 50%;
-            border-style: none;
-            display: block;
-            height: 35px;
-            width: 35px;
-            object-fit: cover;
-        }
-        .naming {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            padding: $padding-m;
-        }
-        .name, .info {
-            letter-spacing: 1px;
-            font-size: $paragraph-font;
-            color: $text-light;
-            font-weight: $light;
-            line-height: 1.5;
-            margin: 0;
-        }
+        flex-wrap: wrap;
     }
 }
 

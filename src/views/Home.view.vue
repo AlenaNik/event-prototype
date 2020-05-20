@@ -4,13 +4,14 @@
       <img class="main-illustration" :src="bg" alt="" />
       <section class="section-one" v-scroll-reveal>
         <h1>Developer Summit {{ year }} at <strong>{{ place }}</strong></h1>
-        <router-link to="/" class="call-to-action"> Book your spot </router-link>
-        <a :href="`mailto:${email}`" class="call-to-action-disabled"> Contact us </a>
+        <p>You can plan your travel and budget appropriately, here's a shortlist of the biggest, boldest, and best software developer conferences and events coming up in 2020.</p>
+        <div class="button-container">
+          <router-link to="/" class="call-to-action"> Book your spot </router-link>
+          <a :href="`mailto:${email}`" class="call-to-action-disabled"> Contact us </a>
+        </div>
       </section>
     </div>
-    <section class="section-two" v-scroll-reveal="{delay: 250}">
-      <Card />
-    </section>
+    <Card v-scroll-reveal="{delay: 250}"/>
   </div>
 </template>
 
@@ -44,13 +45,16 @@ export default {
       width: 100%;
       @include desktop {
         width: 50%;
+        height: 100vh;
       }
     }
     .section-one {
-      box-sizing: border-box;
       text-align: center;
       width: 100%;
       padding: $padding-m * 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       h1 {
         font-size: $heading-font;
         color: $text-dark;
@@ -65,7 +69,14 @@ export default {
       p {
         font-size: $base-font;
         color: $text-light;
-        margin-top: $margin-m * 4;
+        font-weight: $light;
+      }
+      .button-container {
+          display: flex;
+          flex-direction: column;
+          @include wide {
+              flex-direction: row;
+          }
       }
       a {
         border-radius: $border-radius;
@@ -73,6 +84,8 @@ export default {
         background: $text-accent-background;
         padding: 14px 24px;
         width: 190px;
+        margin: $margin-m;
+        text-align: center;
       }
       .call-to-action-disabled {
         border-radius: $border-radius;
@@ -80,11 +93,11 @@ export default {
         background: $text-accent-disabled-background;
         padding: 14px 24px;
         width: 190px;
-        margin-left: $margin-m;
       }
-
       @include desktop {
+        align-items: flex-start;
         text-align: left;
+        justify-content: center;
         margin-left: $padding-m * 5;
       }
     }
@@ -92,17 +105,7 @@ export default {
       display: flex;
       flex-direction: row-reverse;
     }
-  }
-  .section-two {
-    display: flex;
-    flex-direction: column;
-    padding-top: $padding-m;
+}
 
-    @include desktop {
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-    }
-  }
 
 </style>

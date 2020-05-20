@@ -30,6 +30,11 @@
                 isOpen: false
             }
         },
+        methods: {
+            hide() {
+                console.log('Hiding something')
+            }
+        },
         components: {
             ChevronDownIcon,
             ChevronUpIcon
@@ -61,13 +66,14 @@
             color: $text-light
         }
         .sub-menu {
+            background: $base-white;
             margin-top: 20px;
             padding: 20px;
             box-shadow: $box-shadow;
             border-radius: $border-radius;
             text-align: left;
             position: absolute;
-            transform: translateX(-50%);
+            transform: translateX(-40%);
             width: max-content;
             .menu-item {
                 padding: $padding-m;

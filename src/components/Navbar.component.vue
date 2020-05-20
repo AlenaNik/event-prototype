@@ -6,7 +6,8 @@
             <li> <router-link to="/bookings">My bookings</router-link></li>
             <li> <router-link to="/admin-area">Admin </router-link> </li>
             <li>
-                <Dropdown :title="settings[0].title" :items="settings"/>
+                <Dropdown :title="settings[0].title" :items="settings"
+                />
             </li>
         </ul>
     </nav>
@@ -44,6 +45,8 @@ export default {
   },
   components: {
         Dropdown
+    },
+    methods: {
     }
 };
 </script>

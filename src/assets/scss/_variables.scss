@@ -49,7 +49,7 @@ $light: 400;
 
 // wide-screen mixin
 $wide: 1024px;
-@mixin desktop {
+@mixin wide {
   @media (min-width: #{$wide}) {
     @content;
   }
