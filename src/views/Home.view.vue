@@ -10,8 +10,6 @@
     </div>
     <section class="section-two" v-scroll-reveal="{delay: 250}">
       <Card />
-      <Card />
-      <Card />
     </section>
   </div>
 </template>
@@ -93,7 +91,6 @@ export default {
     @include desktop {
       display: flex;
       flex-direction: row-reverse;
-      border: 1px solid red;
     }
   }
   .section-two {
