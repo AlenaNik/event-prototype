@@ -33,15 +33,15 @@ $base-font-color: $text-base;
 $ratio: 1.618;
 
 $font-family: 'Inter', sans-serif;
-$sub-heading-font: $base-font / $ratio;
-$heading-font: $sub-heading-font / $ratio;
+$sub-heading-font: $base-font * $ratio;
+$heading-font: $sub-heading-font * $ratio;
 $heading-color: $text-dark;
 
-$paragraph-font: $base-font * $ratio;
+$paragraph-font: $base-font / $ratio;
 $p-color: $text-light;
 
-$small-font: $paragraph-font * $ratio;
-$xs-font: $small-font * $ratio;
+$small-font: $paragraph-font / $ratio;
+$xs-font: $small-font / $ratio;
 
 $normal: 500;
 $light: 400;

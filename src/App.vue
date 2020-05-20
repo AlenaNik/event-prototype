@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <navbar></navbar>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+import Navbar from './components/Navbar.component'
+export default {
+  name: "App",
+  components: {
+    Navbar
+  }
+};
+</script>
 
+<style lang="scss">
+@import "./assets/scss/variables";
+#app {
+  font-family: $font-family;
+  font-size: $base-font;
+  color: $base-font-color;
+  font-weight: $normal;
+}
 </style>
