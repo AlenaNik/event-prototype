@@ -1,14 +1,18 @@
 <template>
     <div class="layout">
+        {{ this.selected }}
       <div
               class="container"
               v-for="(item, idx) in hotel.rooms" :key="idx">
+       <p>Room {{ item.name }}</p>
        <ul class="mini-card">
            <span class="card-text">
-             <li>{{ item.name }}</li>
              <li>{{ item.description }}</li>
              <li>For {{ item.max_occupancy }} people </li>
              <li>Price {{ item.price_in_usd }} $</li>
+             <button
+                     @click="confirmSelection(item.id)"
+                     class="btn-primary"> Select room </button>
            </span>
          <img src="../assets/img/photo-1576675784201-0e142b423952.jpeg" alt="">
        </ul>
@@ -21,18 +25,22 @@
 export default {
   data() {
     return {
-
+        user_name: 'John Doe',
+        selected: []
     }
   },
     methods: {
         fetch_hotel_data(id) {
         this.$store.dispatch("fetchHotelDetail", id)
-      }
+      },
+        confirmSelection(id) {
+            this.selected.push(id)
+        }
     },
     created() {
       this.fetch_hotel_data(this.$route.params.id)
-      console.log(this.$route.params.id)
     },
+
     computed: {
     ...mapState([
         'hotel'
@@ -43,6 +51,7 @@ export default {
 
 <style scoped lang="scss">
     @import "../assets/scss/variables";
+    @import "../assets/scss/buttons";
 .layout {
     display: flex;
     flex-direction: column;
@@ -83,6 +92,9 @@ export default {
     }
     @include desktop {
         margin: 0 0 0 200px;
+    }
+    button {
+        margin-top: $margin-m;
     }
 }
 </style>
