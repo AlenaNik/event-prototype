@@ -8,11 +8,15 @@ Vue.use(Vuex, axios);
 
 export default new Vuex.Store({
   state: {
-    hotels: []
+    hotels: [],
+    hotel: null
   },
   mutations: {
     SET_HOTELS (state, hotels ) {
       state.hotels = hotels;
+    },
+    SET_DETAIL (state, hotel ) {
+      state.hotel = hotel;
     }
   },
   actions: {
@@ -25,6 +29,15 @@ export default new Vuex.Store({
           .catch(e => {
             console.error(e)
           });
+    },
+    fetchHotelDetail({ commit }, customerId) {
+      axios.get(`${baseUrl}/hotels/${customerId}`)
+          .then(res => {
+            let hotel = res.data
+            commit('SET_DETAIL', hotel)
+          }).catch(e => {
+            console.error(e)
+      })
     }
   },
   modules: {}

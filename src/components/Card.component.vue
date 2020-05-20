@@ -10,7 +10,7 @@
                     <p class="sub-title"> Rooms available: {{ Number(hotel.rooms.length) }} </p>
                 </div>
                 <img src="../assets/img/photo-1543520345-55eb2dc9a1ba.jpeg" alt="">
-                <button class="btn-primary"><router-link to="/details"> Book </router-link></button>
+                <router-link :to="{ name: 'Details', params: {id: hotel.id}}"> <button class="btn-primary"> Book now </button></router-link>
             </div>
         </div>
 </template>
