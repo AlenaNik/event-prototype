@@ -1,23 +1,23 @@
 <template>
   <div>
     <div class="wrapper">
-        <img class="main-illustration" :src="bg" alt="" />
-      <section class="section-one">
+      <img class="main-illustration" :src="bg" alt="" />
+      <section class="section-one" v-scroll-reveal>
         <h1>Developer Summit {{ year }} at <strong>{{ place }}</strong></h1>
-        <router-link to="/profile" class="call-to-action"> Book your spot </router-link>
-        <a
-                :href="`mailto:${email}`"
-                class="call-to-action-disabled"> Contact us </a>
+        <router-link to="/" class="call-to-action"> Book your spot </router-link>
+        <a :href="`mailto:${email}`" class="call-to-action-disabled"> Contact us </a>
       </section>
     </div>
-    <section class="section-two">
+    <section class="section-two" v-scroll-reveal="{delay: 250}">
+      <Card />
+      <Card />
       <Card />
     </section>
   </div>
 </template>
 
 <script>
-import Card from '../components/Card.component'
+import Card from '../components/Card.component';
 import Img from "../assets/img/conference.jpeg";
 
 export default {
@@ -31,7 +31,9 @@ export default {
       place: "Leipzig, Germany"
     };
   },
-  components: {}
+  components: {
+    Card
+  }
 };
 </script>
 

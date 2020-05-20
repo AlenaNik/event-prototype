@@ -3,7 +3,7 @@
     <nav>
         <ul>
             <li> <router-link to="/">Home</router-link></li>
-            <li> <router-link to="/profile">Profile</router-link></li>
+            <li> <router-link to="/bookings">My bookings</router-link></li>
             <li> <router-link to="/admin-area">Admin </router-link> </li>
             <li>
                 <Dropdown :title="settings[0].title" :items="settings"/>

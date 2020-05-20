@@ -18,7 +18,7 @@ const routes = [
     component: Detail
   },
   {
-    path: "/profile",
+    path: "/bookings",
     name: "Booking confirmation",
     component: Confirmation
   },

@@ -1,6 +1,6 @@
 <template>
     <div>
-        Booking details
+        Confirmation page
     </div>
 </template>
 
