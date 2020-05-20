@@ -19,8 +19,9 @@ const routes = [
   },
   {
     path: "/bookings",
-    name: "Booking confirmation",
-    component: Confirmation
+    name: "Confirmation",
+    component: Confirmation,
+    props: true
   },
   {
     path: "/admin-area",

@@ -81,6 +81,7 @@ export default {
             }
         a {
             color: $heading-color;
+            text-decoration: none;
         }
     }
 </style>

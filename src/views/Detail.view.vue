@@ -1,6 +1,15 @@
 <template>
     <div class="layout">
-        {{ this.selected }}
+        <h1>Welcome back, {{ user_name }}! </h1>
+        <div v-if="selected.length > 0">
+            <h2>Selected rooms: {{ selected.length }}</h2>
+            <p>Total: {{ total }} $</p>
+            <router-link :to="{ name: 'Confirmation', params: { selected, total } }"> <button class="btn-primary"> Checkout </button></router-link>
+            <div v-for="(item, idx) in selected" :key="idx">
+                <p>{{ item.name }}</p>
+                <p class="sub-title">{{ item.price_in_usd }} $</p>
+            </div>
+        </div>
       <div
               class="container"
               v-for="(item, idx) in hotel.rooms" :key="idx">
@@ -11,7 +20,7 @@
              <li>For {{ item.max_occupancy }} people </li>
              <li>Price {{ item.price_in_usd }} $</li>
              <button
-                     @click="confirmSelection(item.id)"
+                     @click="confirmSelection(item)"
                      class="btn-primary"> Select room </button>
            </span>
          <img src="../assets/img/photo-1576675784201-0e142b423952.jpeg" alt="">
@@ -35,16 +44,23 @@ export default {
       },
         confirmSelection(id) {
             this.selected.push(id)
-        }
+        },
     },
     created() {
       this.fetch_hotel_data(this.$route.params.id)
     },
-
     computed: {
     ...mapState([
         'hotel'
-      ])
+      ]),
+        total: function () {
+            if (!this.selected) {
+                return 0
+            }
+            return this.selected.reduce((acc, curr) => {
+                return acc += Number(curr.price_in_usd)
+            }, 0)
+        }
     }
 }
 </script>
@@ -58,7 +74,16 @@ export default {
     min-height: 100%;
     padding: 0 50px;
     vertical-align: baseline;
-
+    .sub-title {
+        text-align: center;
+        width: 50px;
+        padding: $padding-xs $padding-m;
+        font-size: $paragraph-font;
+        background-color: $text-accent-background;
+        margin-right: $margin-m;
+        color: $text-accent;
+        border-radius: $border-radius;
+    }
     .container {
         margin: 0;
         padding: 16px 0 0;
