@@ -18,7 +18,7 @@ const routes = [
     component: Detail
   },
   {
-    path: "/bookings",
+    path: "/bookings/:id",
     name: "Confirmation",
     component: Confirmation,
     props: true

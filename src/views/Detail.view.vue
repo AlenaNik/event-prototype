@@ -4,7 +4,7 @@
         <div v-if="selected.length > 0">
             <h2>Selected rooms: {{ selected.length }}</h2>
             <p>Total: {{ total }} $</p>
-            <router-link :to="{ name: 'Confirmation', params: { selected, total } }"> <button class="btn-primary"> Checkout </button></router-link>
+            <router-link :to="{ name: 'Confirmation', params: { id: num, selected, total } }"> <button class="btn-primary"> Checkout </button></router-link>
             <div v-for="(item, idx) in selected" :key="idx">
                 <p>{{ item.name }}</p>
                 <p class="sub-title">{{ item.price_in_usd }} $</p>
@@ -35,7 +35,8 @@ export default {
   data() {
     return {
         user_name: 'John Doe',
-        selected: []
+        selected: [],
+        num: '675799'
     }
   },
     methods: {
