@@ -7,8 +7,13 @@
                     <p class="sub-title"
                        v-for="(amenity, idx) in hotel.amenities" :key="idx"
                     >{{ amenity }}</p>
-                    <p v-if="hotel.rooms.length > 1" class="sub-title"> Rooms available: {{ Number(hotel.rooms.length) }} </p>
-                    <p v-else class="sub-title-important"> {{ Number(hotel.rooms.length) }} room left. Hurry up! </p>
+                    <div v-if="hotel.rooms">
+                        <p v-if="hotel.rooms.length > 1" class="sub-title"> Rooms available: {{ Number(hotel.rooms.length) }} </p>
+                        <p v-else class="sub-title-important"> {{ Number(hotel.rooms.length) }} room left. Hurry up! </p>
+                    </div>
+                    <div v-else>
+                        <p>No rooms data provided for this hotel yet </p>
+                    </div>
                 </div>
                 <img src="../assets/img/photo-1543520345-55eb2dc9a1ba.jpeg" alt="">
                 <router-link :to="{ name: 'Details', params: {id: hotel.id}}"> <button class="btn-primary"> Book now </button></router-link>

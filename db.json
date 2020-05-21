@@ -1,6 +1,85 @@
 {
   "hotels": [
     {
+      "id": 1,
+      "rating": 4.5,
+      "price_category": "high",
+      "amenities": [
+        "pets",
+        "free_wifi"
+      ],
+      "images": "http://via.placeholder.com/140x140",
+      "rooms": [
+        {
+          "id": "ce7a8fe1-aeb1-4505-8a36-15c2cd44d315",
+          "name": "Handmade Wooden Chicken",
+          "description": "Vitae sequi at blanditiis.",
+          "max_occupancy": 5,
+          "price_in_usd": "420.00"
+        },
+        {
+          "id": "15d6a1c3-d768-49ad-913d-ea65d850b9e5",
+          "name": "Gorgeous Frozen Chicken",
+          "description": "Veniam quaerat molestiae nam.",
+          "max_occupancy": 1,
+          "price_in_usd": "274.00"
+        },
+        {
+          "id": "a6d1d7e0-1573-4f2b-b2c4-75343581bd72",
+          "name": "Refined Frozen Hat",
+          "description": "Molestiae accusantium explicabo voluptate est cum dolor.",
+          "max_occupancy": 2,
+          "price_in_usd": "37.00"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "rating": 4,
+      "price_category": "medium",
+      "amenities": [
+        "restaurant",
+        "gym",
+        "pool"
+      ],
+      "images": "http://via.placeholder.com/140x140",
+      "rooms": [
+        {
+          "id": "61a92425-b03c-4ba3-8952-f1661cbbdfd0",
+          "name": "Handmade Concrete Towels",
+          "description": "Est itaque eos autem beatae.",
+          "max_occupancy": 5,
+          "price_in_usd": "308.00"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "rating": 4.5,
+      "price_category": "low",
+      "amenities": [
+        "free_parking",
+        "free_wifi"
+      ],
+      "images": "http://via.placeholder.com/140x140",
+      "rooms": [
+        {
+          "id": "8d3540a4-9f23-4733-b920-926120ca2df4",
+          "name": "Gorgeous Granite Bacon",
+          "description": "Vitae neque repellat.",
+          "max_occupancy": 5,
+          "price_in_usd": "573.00"
+        },
+        {
+          "id": "72b297e1-4be0-4da4-9986-ece7aee12677",
+          "name": "Handcrafted Steel Mouse",
+          "description": "Magnam aspernatur fuga perferendis minima similique impedit.",
+          "max_occupancy": 4,
+          "price_in_usd": "919.00"
+        }
+      ]
+    },
+    {
       "id": 4,
       "rating": 3.5,
       "price_category": "medium",

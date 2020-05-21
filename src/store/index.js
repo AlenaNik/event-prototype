@@ -58,7 +58,7 @@ export default new Vuex.Store({
    addNewHotel({ commit }, item) {
         axios.post(`${baseUrl}/hotels`, {item})
             .then(res => {
-                commit('SET_NEWHOTELS', Object.assign(item, {id: res.data.id}))
+                commit('ADD_HOTEL', Object.assign(item, {id: res.data.id}))
             }).catch(e => {
                 console.error(e)
         })
