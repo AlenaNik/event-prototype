@@ -1,0 +1,87 @@
+{
+  "hotels": [
+    {
+      "id": 4,
+      "rating": 3.5,
+      "price_category": "medium",
+      "amenities": [
+        "pets"
+      ],
+      "images": "http://via.placeholder.com/140x140",
+      "rooms": [
+        {
+          "id": "4ef7057c-9ae3-480d-b80d-5bc1742d7665",
+          "name": "Generic Steel Bike",
+          "description": "Suscipit ut reprehenderit in inventore aut dolor harum.",
+          "max_occupancy": 2,
+          "price_in_usd": "1000.00"
+        },
+        {
+          "id": "bbe8af86-83f1-44fd-b217-0667b4142edf",
+          "name": "Licensed Steel Hat",
+          "description": "Hic rem enim nobis.",
+          "max_occupancy": 5,
+          "price_in_usd": "405.00"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "rating": 0,
+      "price_category": "high",
+      "amenities": [
+        "pets",
+        "spa"
+      ],
+      "images": "http://via.placeholder.com/140x140",
+      "rooms": [
+        {
+          "id": "0ac3149a-7676-441b-a306-b13159d4f787",
+          "name": "Gorgeous Fresh Bike",
+          "description": "Dignissimos voluptatem voluptas.",
+          "max_occupancy": 3,
+          "price_in_usd": "126.00"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "rating": 5,
+      "price_category": "high",
+      "amenities": [
+        "free_wifi"
+      ],
+      "images": "http://via.placeholder.com/140x140",
+      "rooms": [
+        {
+          "id": "b8f51852-bc13-49a8-8b81-6c5cb1979ad4",
+          "name": "Generic Cotton Car",
+          "description": "Dolor quod dignissimos aut eligendi consequatur voluptatibus et ipsa.",
+          "max_occupancy": 3,
+          "price_in_usd": "987.00"
+        },
+        {
+          "id": "8a7b60d6-1dc9-47a3-ae47-05cd4d722394",
+          "name": "Tasty Cotton Tuna",
+          "description": "Dolore doloremque rem deleniti non reiciendis eius deserunt sunt.",
+          "max_occupancy": 2,
+          "price_in_usd": "291.00"
+        },
+        {
+          "id": "60134c68-4728-40e9-b2e2-cc28cb3a17bf",
+          "name": "Small Steel Chips",
+          "description": "Consequatur debitis temporibus voluptas laboriosam voluptatem.",
+          "max_occupancy": 1,
+          "price_in_usd": "545.00"
+        },
+        {
+          "id": "1b62a747-ea60-4f0e-9ca1-ff35ee6f60af",
+          "name": "Gorgeous Metal Cheese",
+          "description": "Illum qui accusamus voluptatem ratione.",
+          "max_occupancy": 4,
+          "price_in_usd": "300.00"
+        }
+      ]
+    }
+  ]
+}
