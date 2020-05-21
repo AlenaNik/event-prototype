@@ -8,6 +8,7 @@
             <div v-for="(item, idx) in selected" :key="idx">
                 <p>{{ item.name }}</p>
                 <p class="sub-title">{{ item.price_in_usd }} $</p>
+                <button class="sub-title-alert" @click="removeSelection(idx)">Remove room</button>
             </div>
         </div>
       <div
@@ -46,9 +47,26 @@ export default {
         confirmSelection(id) {
             this.selected.push(id)
         },
+        removeSelection(x) {
+          this.selected.splice(x, 1);
+          this.saveSelection()
+        },
+        saveSelection() {
+            let parsed = JSON.stringify(this.selected)
+            localStorage.setItem('selected', parsed)
+        }
     },
     created() {
       this.fetch_hotel_data(this.$route.params.id)
+    },
+    mounted() {
+      if(localStorage.getItem('selected')) {
+          try {
+              this.selected = JSON.parse(localStorage.getItem('selected'));
+          } catch (e) {
+              localStorage.removeItem('selected')
+          }
+      }
     },
     computed: {
     ...mapState([
@@ -83,6 +101,17 @@ export default {
         background-color: $text-accent-background;
         margin-right: $margin-m;
         color: $text-accent;
+        border-radius: $border-radius;
+    }
+    .sub-title-alert {
+        text-align: center;
+        width: 80px;
+        padding: $padding-xs $padding-m;
+        font-size: $paragraph-font;
+        background-color: $text-attention-background;
+        margin-right: $margin-m;
+        border: $border;
+        color: $text-attention-accent;
         border-radius: $border-radius;
     }
     .container {
