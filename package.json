@@ -9,7 +9,7 @@
     "server": "json-server --watch db.json"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "vue": "^2.6.11",
     "vue-feather-icons": "^5.0.0",
     "vue-infinite-loading": "^2.4.5",
